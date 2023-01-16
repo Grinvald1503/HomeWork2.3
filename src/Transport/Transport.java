@@ -1,6 +1,8 @@
 package Transport;
 
-public abstract class Transport implements Competing {
+import Transport.Driver.Driver;
+
+public abstract class Transport <T extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private double engineValue;
@@ -8,8 +10,9 @@ public abstract class Transport implements Competing {
     private double bestLapTime;
     private int speed;
     private int maxSpeed;
+    private final T driver;
 
-    public Transport(String brand, String model, double engineValue) {
+    public Transport(String brand, String model, double engineValue, T driver) {
         if (brand == null) {
             this.brand = "default";
         } else {
@@ -26,6 +29,7 @@ public abstract class Transport implements Competing {
         } else {
             this.engineValue = engineValue;
         }
+        this.driver = driver;
     }
 
     public abstract void printType();
