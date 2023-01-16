@@ -1,10 +1,12 @@
 package Transport;
 
-public class Truk extends Transport.Transport {
+import Transport.Driver.ClassC;
+
+public class Truk extends Transport<ClassC> {
     private LoadCapacity loadCapacity;
 
-    public Truk (String brand, String model, double engineValue, LoadCapacity loadCapacity) {
-        super(brand, model, engineValue);
+    public Truk (String brand, String model, double engineValue, ClassC driver, LoadCapacity loadCapacity) {
+        super(brand, model, engineValue, driver);
         this.loadCapacity = loadCapacity;
     }
     private enum LoadCapacity {
@@ -56,6 +58,9 @@ public class Truk extends Transport.Transport {
     public String toString() {
         return "Марка - " + getBrand() + ", Модель - " + getModel() + ", Объём двигателя - " + getEngineValue();
     }
+
+
+
     @Override
     public void printType() {
         if (loadCapacity == null) {

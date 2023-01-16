@@ -1,6 +1,8 @@
-package Transport;
+package Transport.Driver;
 
-public class Driver <D extends Transport> {
+import Transport.Transport;
+
+public abstract class Driver {
     private String fio;
     private boolean driverLicense;
     private int experience;
@@ -30,14 +32,7 @@ public class Driver <D extends Transport> {
         }
     }
 
-    public void perform(D auto) {
-        if (driverLicense) {
-            System.out.println("водитель "+ fio + " управляет автомобилем " + auto.getBrand() + auto.getModel() +" и будет участвовать в заезде");
-        }
-        else {
-            System.out.println("У водителя нет прав");
-        }
-    }
+
 
     public String getFio() {
         return fio;
@@ -50,13 +45,7 @@ public class Driver <D extends Transport> {
     public int getExperience() {
         return experience;
     }
-    public void startMoving() {
-        System.out.println("Водитель начинает движение.");
-    }
-    public void stop() {
-        System.out.println("Водитель начал остановку");
-    }
-    public void refuelCar() {
-        System.out.println("Водитель начал заправку");
-    }
+    public abstract void startMoving();
+    public abstract void stop();
+    public abstract void refuelCar();
 }

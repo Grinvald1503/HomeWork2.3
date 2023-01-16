@@ -1,11 +1,14 @@
 package Transport;
 
-public class Car extends Transport {
+import Transport.Driver.ClassB;
+import Transport.Driver.Driver;
+
+public class Car extends Transport <ClassB> {
     private BodyType bodyType;
 
 
-    public Car(String brand, String model, double engineValue, BodyType bodyType) {
-        super(brand, model, engineValue);
+    public Car(String brand, String model, double engineValue, ClassB driver, BodyType bodyType) {
+        super(brand, model, engineValue, driver);
         this.bodyType = bodyType;
 
 
@@ -39,6 +42,8 @@ public class Car extends Transport {
             return bodyType;
         }
     }
+
+
 
 
     @Override
