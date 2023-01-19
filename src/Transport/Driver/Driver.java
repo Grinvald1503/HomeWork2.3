@@ -6,18 +6,36 @@ public abstract class Driver {
     private String fio;
     private boolean driverLicense;
     private int experience;
-    public Driver (String fio, boolean driverLicense, int experience) {
+
+    public Driver(String fio, boolean driverLicense, int experience) throws CantLicensionException {
         if (fio == null) {
             this.fio = "No name";
         } else {
             this.fio = fio;
         }
+
         this.driverLicense = driverLicense;
+
+
         if (experience < 0) {
             this.experience = experience * -1;
         } else {
             this.experience = experience;
         }
+        if (!this.driverLicense) {
+            throw new CantLicensionException("Необходимо указать тип прав!");
+
+        }
+    }
+
+    public void checkException() throws CantLicensionException {
+        if (isDriverLicense()) {
+            throw new CantLicensionException("У водителя есть права.");
+        } else {
+            throw new CantLicensionException("У водителя нет прав!");
+
+        }
+
     }
 
     public void setDriverLicense(boolean driverLicense) {
@@ -33,7 +51,6 @@ public abstract class Driver {
     }
 
 
-
     public String getFio() {
         return fio;
     }
@@ -45,7 +62,10 @@ public abstract class Driver {
     public int getExperience() {
         return experience;
     }
+
     public abstract void startMoving();
+
     public abstract void stop();
+
     public abstract void refuelCar();
 }

@@ -1,7 +1,14 @@
 package Transport;
 
 
+import Transport.Driver.CantLicensionException;
+import Transport.Driver.ClassB;
+import Transport.Driver.Driver;
+
 public class Main {
+    public Main() throws CantLicensionException {
+    }
+
     public static void main(String[] args) {
 //        Car ladaGranta = new Car("Lada", "Granta", 1.7);
 //        Car audiA8 = new Car("Audi", "A8 50 L TDI quattro", 3.0);
@@ -28,11 +35,25 @@ public class Main {
 //        System.out.println(ikarus);
 //        belaz.bestLapTime();
 //        belaz.maxSpeed();
-//        Driver<Car> ivan = new Driver<Car>("Иванов Иван Иванович", true, 3);
 //        ivan.perform(audiA8);
 //        System.out.println(Truk.LoadCapacity.N1);
 //      System.out.println(Truk.LoadCapacity.N2);
 //        System.out.println(Truk.LoadCapacity.N3);
     }
+    ClassB max = new ClassB("asd", false, 0);
+
+    public static void checkLicense(ClassB... drivers) throws CantLicensionException {
+        for (ClassB driver : drivers) {
+            try {
+                driver.checkException();
+            } catch (CantLicensionException e) {
+                System.out.println("Водитель не допущен к заезду");
+            }
+        }
+    }
+
+
+
+
 
 }

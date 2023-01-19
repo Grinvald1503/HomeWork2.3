@@ -65,7 +65,11 @@ public class Bus extends Transport<ClassD> {
     @Override
     public String toString() {
         return "Марка - " + getBrand() + ", Модель - " + getModel() + ", Объём двигателя - " + getEngineValue();
+    }
 
+    @Override
+    public void passDiagnostics() {
+        throw new UnsupportedOperationException("Автобусы не могут проходить диганостику!");
     }
 
     @Override
