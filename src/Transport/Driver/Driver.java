@@ -28,15 +28,7 @@ public abstract class Driver {
         }
     }
 
-    public void checkException() throws CantLicensionException {
-        if (isDriverLicense()) {
-            throw new CantLicensionException("У водителя есть права.");
-        } else {
-            throw new CantLicensionException("У водителя нет прав!");
 
-        }
-
-    }
 
     public void setDriverLicense(boolean driverLicense) {
         this.driverLicense = driverLicense;

@@ -6,8 +6,6 @@ import Transport.Driver.ClassB;
 import Transport.Driver.Driver;
 
 public class Main {
-    public Main() throws CantLicensionException {
-    }
 
     public static void main(String[] args) {
 //        Car ladaGranta = new Car("Lada", "Granta", 1.7);
@@ -39,21 +37,14 @@ public class Main {
 //        System.out.println(Truk.LoadCapacity.N1);
 //      System.out.println(Truk.LoadCapacity.N2);
 //        System.out.println(Truk.LoadCapacity.N3);
-    }
-    ClassB max = new ClassB("asd", false, 0);
 
-    public static void checkLicense(ClassB... drivers) throws CantLicensionException {
-        for (ClassB driver : drivers) {
-            try {
-                driver.checkException();
-            } catch (CantLicensionException e) {
-                System.out.println("Водитель не допущен к заезду");
-            }
+
+        try {
+            ClassB max = new ClassB("asd", false, 0);
+        } catch (CantLicensionException e) {
+            throw new RuntimeException(e);
         }
     }
-
-
-
 
 
 }
