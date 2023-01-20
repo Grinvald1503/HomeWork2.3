@@ -59,7 +59,10 @@ public class Truk extends Transport<ClassC> {
         return "Марка - " + getBrand() + ", Модель - " + getModel() + ", Объём двигателя - " + getEngineValue();
     }
 
-
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Грузовик " + getModel() + " проходит диагностику");
+    }
 
     @Override
     public void printType() {

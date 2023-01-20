@@ -1,7 +1,7 @@
 package Transport.Driver;
 
 public class ClassD extends Driver{
-    public ClassD(String fio, boolean driverLicense, int experience) {
+    public ClassD(String fio, boolean driverLicense, int experience) throws CantLicensionException {
         super(fio, driverLicense, experience);
     }
 

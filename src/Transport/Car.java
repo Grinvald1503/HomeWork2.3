@@ -44,7 +44,10 @@ public class Car extends Transport <ClassB> {
     }
 
 
-
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Легковой авто " + getModel() + "проходит диагностику");
+    }
 
     @Override
     public void printType() {
